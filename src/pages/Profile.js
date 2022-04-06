@@ -36,6 +36,7 @@ const Profile = () => {
           }
           const snap = await uploadBytes(imgRef, img);
           const url = await getDownloadURL(ref(storage, snap.ref.fullPath));
+          console.log(snap.ref.fullPath);
 
           await updateDoc(doc(db, "users", auth.currentUser.uid), {
             avatar: url,
